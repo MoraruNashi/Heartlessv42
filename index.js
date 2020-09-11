@@ -649,7 +649,7 @@ client.on("message", message => {
     
     const getData = async () => {
       // 1 - Créer une instance de navigateur
-      const browser = await puppeteer.launch({ headless: false })
+      const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
       const page = await browser.newPage()
     
       // 2 - Naviguer jusqu'à l'URL cible
