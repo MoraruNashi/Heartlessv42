@@ -132,7 +132,7 @@ client.on("message", message => {
                     "\n\n\n**Nombre de rôles** : " + (serv.roles.cache.size) +
                     "\n\n\n**Admin** : \n\n" +
                     (serv.members.cache.filter(memb => memb.hasPermission('ADMINISTRATOR')).filter(meb => !meb.user.bot).array().toLocaleString().replace(/,/g, "\n\n")) +
-                    "\n\n\n**Date de création du serveur** : " + (serv.createdAt.toLocaleString('"fr-FR"')))
+                    "\n\n\n**Date de création du serveur** : " + (serv.createdAt.toLocaleString('fr-FR')))
                 .setThumbnail(serv.iconURL({ format: "png", dynamic: true }))
                 .setFooter('u!serverinfo by mr_shoco','https://images-ext-2.discordapp.net/external/HsMb4ZEcrvMxwaG8Y3b43daCDj3jE2MkS99UgR_ywdc/https/cdn.discordapp.com/avatars/439129442972073984/017edd7317279c6c58f23363cb9f22ee.png')
             message.channel.send(si)
