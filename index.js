@@ -420,7 +420,7 @@ client.on("message", message => {
     if (message.content.startsWith(prefix + 'say')) {
         let args = message.content.split(' ').slice(1);
         let say = args.join(' ');
-        if (say.includes("@everyone") || (say.includes('@here'))) return message.channel.send('méchant pas bo');
+        if (say.includes("@everyone") || (say.includes('@here') || (message.mentions.roles.size > 0))) return message.channel.send('non.');
         message.delete().catch();
         message.channel.send(say)
         console.log(`${message.author} || ${message.author.id} => ${say}`)
