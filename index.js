@@ -98,7 +98,7 @@ client.on("message", message => {
      
                 **Date de création du compte : ${(user.createdAt.toLocaleString("en-US", {hour12: false}))}**
     
-                **${user.username} a rejoint le serveur le : ${message.guild.member(user).joinedAt.toLocaleString("en-US", {hour12: false})}**
+                **${user.username} a rejoint le serveur le : ${message.guild.member(user).joinedAt.toLocaleString("fr-FR", {hour12: false})}**
     
                 **Rôles de l'utilisateur :** 
     
