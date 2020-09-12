@@ -241,7 +241,7 @@ client.on("message", message => {
             https://discordapp.com/api/oauth2/authorize?client_id=663090502081445918&permissions=8&scope=bot
 
             Pour toute demandes en rapport avec le développement ou juste en rapport avec le bot, vous pouvez
-            venir poser vos questions ici : https://discord.gg/t7P8GE
+            venir poser vos questions ici : https://youtu.be/f2xGxd9xPYA
 
             Merci de votre implication dans le développement de mon projet Heartless.
             :D
