@@ -691,7 +691,7 @@ client.on("message", message => {
         \`Temps de jeu:\` ${value.time}
 
         `)
-        .setThumbnail(`https://mc-heads.net/avatar/${args}`)
+        .setThumbnail(`https://mc-heads.net/body/${args}/100`)
         message.channel.send(embed)
     
     })
