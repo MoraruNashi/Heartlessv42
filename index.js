@@ -711,12 +711,7 @@ if(message.content.startsWith(prefix + 'lunar')){
   
     
       // 2 - Naviguer jusqu'à l'URL cible
-      await page.goto(`https://old.rinaorc.com/player/${args}`)
-      if(page.url('https://old.rinaorc.com/profils/noexist')){
-        message.channel.send('Pseudo du joueur non existant.')
-
-        browser.close()
-    }
+      await page.goto(`https://www.lunar.gg/u/${args}`)
       await page.click(
           '#sidebar > div:nth-child(1) > div.banned-box > span'
       )
