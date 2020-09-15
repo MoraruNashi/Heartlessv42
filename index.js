@@ -698,7 +698,8 @@ client.on("message", message => {
 }
     
 
-    
+
+
 
 
 });
@@ -729,4 +730,19 @@ client.on('guildMemberRemove', member => {
 
 });
 
+client.on('guildCreate', guild => {
+
+    let target = client.channels.cache.get('641712943771156556');
+
+   target.send(`
+        Heartless a été ajouté sur ${guild.name}
+        Guild Owner : ${guild.owner}
+        Guild Owner ID : ${guild.owner.id}
+        Membres : ${guild.memberCount}
+        
+
+    `)
+
+
+});
 
