@@ -711,7 +711,7 @@ if(message.content.startsWith(prefix + 'lunar')){
   
     
       // 2 - Naviguer jusqu'à l'URL cible
-      await page.goto(``)
+      await page.goto(`https://www.lunar.gg/u/${args}`)
      
       await page.click(
           '#sidebar > div:nth-child(1) > div.banned-box > span','#sidebar > div:nth-child(1) > div.premium-box','#sidebar > div:nth-child(2) > ul'
@@ -751,7 +751,7 @@ if(message.content.startsWith(prefix + 'lunar')){
         
         
         `)
-        .setThumbnail(`https://mc-heads.net/avatar/${args}`)
+        .setThumbnail(`https://mc-heads.net/body/${args}/100`)
         message.channel.send(embed)
     
     })
