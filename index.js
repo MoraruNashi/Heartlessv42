@@ -727,7 +727,7 @@ if(message.content.startsWith(prefix + 'lunar')){
         let stats = document.querySelector('#sidebar > div:nth-child(2) > ul').textContent
        
 
-        return {Grade, stats, statut}
+        return { Grade, stats, statut}
         
       })
     
@@ -736,7 +736,26 @@ if(message.content.startsWith(prefix + 'lunar')){
       return result
     }
     
+    // Appelle la fonction getData() et affichage les données retournées
+    getData().then(value => {
 
+     let embed = new Discord.MessageEmbed()
+     .setTitle(`Statistiques de ${args}`)
+     .setDescription(`
+
+        \`Statut :\` ${value.statut}
+        
+        \`Grade :\` ${value.Grade}
+        
+        \`Stats :\` ${value.stats}
+        
+        
+        `)
+        .setThumbnail(`https://mc-heads.net/avatar/${args}`)
+        message.channel.send(embed)
+    
+    })
+}
 
 
 });
