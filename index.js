@@ -711,9 +711,10 @@ if(message.content.startsWith(prefix + 'lunar')){
   
     
       // 2 - Naviguer jusqu'à l'URL cible
-      await page.goto(`https://www.lunar.gg/u/${args}`)
+      await page.goto(``)
+     
       await page.click(
-          '#sidebar > div:nth-child(1) > div.banned-box > span'
+          '#sidebar > div:nth-child(1) > div.banned-box > span','#sidebar > div:nth-child(1) > div.premium-box','#sidebar > div:nth-child(2) > ul'
       )
       
       
@@ -726,7 +727,7 @@ if(message.content.startsWith(prefix + 'lunar')){
         let stats = document.querySelector('#sidebar > div:nth-child(2) > ul').textContent
        
 
-        return { result, Grade, stats, statut}
+        return {Grade, stats, statut}
         
       })
     
@@ -734,27 +735,6 @@ if(message.content.startsWith(prefix + 'lunar')){
       browser.close()
       return result
     }
-    
-    // Appelle la fonction getData() et affichage les données retournées
-    getData().then(value => {
-
-     let embed = new Discord.MessageEmbed()
-     .setTitle(`Statistiques de ${args}`)
-     .setDescription(`
-
-        \`Statut :\` ${value.statut}
-        
-        \`Grade :\` ${value.Grade}
-        
-        \`Stats :\` ${value.stats}
-        
-        
-        `)
-        .setThumbnail(`https://mc-heads.net/body/${args}/100`)
-        message.channel.send(embed)
-    
-    })
-}
     
 
 
