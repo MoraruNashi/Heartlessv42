@@ -628,6 +628,7 @@ client.on("message", message => {
         .setTitle(`Voici le profil showdown de ${say}`)
         .setColor('BLUE')
         .setURL(`https://pokemonshowdown.com/users/${say}`)
+        .setFooter(`Heartless by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
         if(!say){ message.reply('Veuillez ajouter un nom de compte.')
         }
         message.channel.send(embed)
@@ -692,6 +693,7 @@ client.on("message", message => {
 
         `)
         .setThumbnail(`https://mc-heads.net/body/${args}/100`)
+        .setFooter(`Heartless by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
         message.channel.send(embed)
     
     })
@@ -752,6 +754,7 @@ if(message.content.startsWith(prefix + 'lunar')){
         
         `)
         .setThumbnail(`https://mc-heads.net/body/${args}/100`)
+        .setFooter(`Heartless by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
         message.channel.send(embed)
     
     })
