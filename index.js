@@ -700,65 +700,7 @@ client.on("message", message => {
 }
     
 
-if(message.content.startsWith(prefix + 'lunar')){
-    let args = message.content.split(' ').slice(1);
-    
-    const getData = async () => {
-      // 1 - Créer une instance de navigateur
-      const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
-      const page = await browser.newPage()
 
-
-     
-  
-    
-      // 2 - Naviguer jusqu'à l'URL cible
-      await page.goto(`https://www.lunar.gg/u/${args}`)
-     
-      await page.click(
-          '#sidebar > div:nth-child(1) > div.banned-box > span','#sidebar > div:nth-child(1) > div.premium-box','#sidebar > div:nth-child(2) > ul'
-      )
-      
-      
-
-     
-      // 3 - Récupérer les données
-      const result = await page.evaluate(() => {
-        let statut = document.querySelector('#sidebar > div:nth-child(1) > div.banned-box > span').textContent
-        let Grade = document.querySelector('#sidebar > div:nth-child(1) > div.premium-box').textContent
-        let stats = document.querySelector('#sidebar > div:nth-child(2) > ul').textContent
-       
-
-        return { Grade, stats, statut}
-        
-      })
-    
-      // 4 - Retourner les données (et fermer le navigateur)
-      browser.close()
-      return result
-    }
-    
-    // Appelle la fonction getData() et affichage les données retournées
-    getData().then(value => {
-
-     let embed = new Discord.MessageEmbed()
-     .setTitle(`Statistiques de ${args}`)
-     .setDescription(`
-
-        \`Statut :\` ${value.statut}
-        
-        \`Grade :\` ${value.Grade}
-        
-        \`Stats :\` ${value.stats}
-        
-        
-        `)
-        .setThumbnail(`https://mc-heads.net/body/${args}/100`)
-        .setFooter(`Heartless by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
-        message.channel.send(embed)
-    
-    })
-}
 
 
 });
