@@ -127,7 +127,20 @@ if(message.content.startsWith(prefix + 'creator clear')){
 
  }
 
+if(message.content.startsWith(prefix + 'serverlist')){
 
+    let embed = new Discord.MessageEmbed()
+    .setTitle(`Nombre de guildes : ${client.guilds.cache.size}`)
+    .setDescription(
+    client.guilds.cache.forEach(g => (`
+    
+    Serveur ${g.name} 
+    owner : ${g.owner} 
+    Nombre de membres : 
+    ${g.memberCount}\n\n`)))
+
+    message.channel.send(embed)
+  }
 
     
     
