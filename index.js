@@ -680,21 +680,18 @@ client.on("message", message => {
     getData().then(value => {
 
      let embed = new Discord.MessageEmbed()
-     .setTitle(`Stats de ${args}`)
-     .setDescription(`
-
-        \`Dernière connexion :\` ${value.lastconnection}
+        .setTitle(`Stats de ${args}`)
+        .setDescription(`
         
-        \`Première connexion :\` ${value.firsthour}
+          \`➥ **Stats de ${args}**\`
         
-        \`Grade :\` ${value.badge}
-        
-        \`Temps de jeu:\` ${value.time}
-
-        `)
-        .setThumbnail(`https://mc-heads.net/body/${args}/100`)
-        .setFooter(`Heartless by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
-        message.channel.send(embed)
+          \`📆 Dernière connexion: Il y'a ${lastconnection}\`
+          \`👥  Première connexion: ${firsthour}\`
+          \`⭐ Grade: ${badge}\`
+          \`🕐  Temps de jeu: ${time}\``)
+           .setThumbnail(`https://mc-heads.net/body/${args}/100`)
+           .setFooter(`Heartless by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
+           message.channel.send(embed).then(msg => msg.content.replace('Visiteur', 'Joueur'))
         }).catch(err => {
         message.reply("Le pseudo n'existe pas.");
         console.error(err);
