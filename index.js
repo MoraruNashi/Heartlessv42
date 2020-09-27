@@ -316,7 +316,7 @@ client.on("message", message => {
                         .setTitle(`${message.author.username} a kick ${user.username}`)
                         .setColor('BLUE')
                         .setDescription(`**Pour raison : ${say}**`)
-                        .setImage(`${user.avatarURL}`)
+                        .setImage(`${user.avatarURL({ format: "png", dynamic: true })}`)
                         .setThumbnail(message.author.avatarURL({ format: "png", dynamic: true }))
                     message.channel.send(ban)
                     console.log(message.author.tag + " -> ban -> " + (user.tag))
