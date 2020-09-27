@@ -685,7 +685,7 @@ client.on("message", message => {
         
             ➥ **Stats de ${args}**
         
-           📆\`Dernière connexion: Il y'a ${value.lastconnection}\`
+           📆\`Dernière connexion: ${value.lastconnection}\`
            👥\`Première connexion: ${value.firsthour}\`
            ⭐\`Grade: ${value.badge}\`
            🕐\`Temps de jeu: ${value.time}\``)
@@ -693,7 +693,7 @@ client.on("message", message => {
            .setFooter(`Heartless by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
            message.channel.send(embed)
         }).catch(err => {
-        message.reply("Le pseudo n'existe pas.");
+        message.channel.send("Le pseudo n'existe pas.")
         console.error(err);
     
     })
