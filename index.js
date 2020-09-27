@@ -680,7 +680,7 @@ client.on("message", message => {
     getData().then(value => {
 
      let embed = new Discord.MessageEmbed()
-        .setTitle(`Stats de ${args}`)
+        
         .setDescription(`
         
             ➥ **Stats de ${args}**
