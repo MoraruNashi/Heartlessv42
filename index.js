@@ -77,7 +77,7 @@ client.on("message", message => {
     /////////////////////////
 
 
-    if (message.content == (prefix + 'ui' ||  message.content == (prefix + 'userinfo'))) {
+    if (message.content.startsWith(prefix + 'ui') || message.contente.startWith(prefix + 'userinfo')){
         const user = message.mentions.users.first() ? message.mentions.users.first() : message.author;
 
 
@@ -116,7 +116,7 @@ client.on("message", message => {
     /////////////////////////////////////////////////////////
 
 
-    if (message.content.startsWith(prefix + 'si') || message.content.startsWith(prefix + 'serverinfo')) {
+    if (message.content == prefix + 'si' || message.content == prefix + 'serverinfo') {
         if (!message.guild) return message.reply("Commande impossible si elle n'est pas exécutée sur un serveur.")
         else {
             let serv = message.guild
@@ -143,7 +143,7 @@ client.on("message", message => {
     //////////////////////////////////////////////////////
 
 
-    if (message.content.startsWith(prefix + 'servpp')) {
+    if (message.content == prefix + 'servpp') {
 
         message.channel.send(message.guild.iconURL({ format: "png", dynamic: true }))
 
@@ -162,7 +162,7 @@ client.on("message", message => {
 
 
 
-    if (message.content.startsWith(prefix + 'help')) {
+    if (message.content == prefix + 'help') {
         const help = new Discord.MessageEmbed()
             .setTitle('Liste des commandes de Heartless')
             .setColor('BLUE')
@@ -212,7 +212,7 @@ client.on("message", message => {
 
     /////////////////////////////////////////////////////////////
 
-    if (message.content.startsWith(prefix + 'dé')) {
+    if (message.content == prefix + 'dé'){
 
         var min = 1;
         var max = 7;
@@ -222,7 +222,7 @@ client.on("message", message => {
     }
 
     ////////////////////////////////////////////////////////////////
-    if (message.content.startsWith(prefix + 'botinfo') || message.content.startsWith(prefix + 'bi')) {
+    if (message.content == prefix + 'botinfo' || message.content == prefix + 'bi'){
         console.log(message.author.tag + " ->  botinfo")
 
         const botinfo = new Discord.MessageEmbed()
