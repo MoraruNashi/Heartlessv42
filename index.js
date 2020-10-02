@@ -66,7 +66,7 @@ client.on("message", message => {
 
     /////////////////////////////////////
 
-    if (message.content.startsWith(prefix + 'ping')) {
+    if (message.content == (prefix + 'ping') {
         let début = Date.now();
         message.channel.send("Calcul ...").then(async (m) => await m.edit(`Latence de : ${Date.now() - début} ms`));
         console.log(message.author.tag + '--> ping')
@@ -77,7 +77,7 @@ client.on("message", message => {
     /////////////////////////
 
 
-    if (message.content.startsWith(prefix + 'ui') ||  message.content.startsWith(prefix + 'userinfo')) {
+ if (message.content == (prefix + 'ui' ||  message.content == (prefix + 'userinfo'))) {
         const user = message.mentions.users.first() ? message.mentions.users.first() : message.author;
 
 
