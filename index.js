@@ -77,7 +77,7 @@ client.on("message", message => {
     /////////////////////////
 
 
-    if (message.content.startsWith(prefix + 'ui') || message.contente.startWith(prefix + 'userinfo')){
+    if (message.content.startsWith(prefix + 'ui') || message.contente.startstWith(prefix + 'userinfo')){
         const user = message.mentions.users.first() ? message.mentions.users.first() : message.author;
 
 
