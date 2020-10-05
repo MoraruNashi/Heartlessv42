@@ -10,13 +10,15 @@ client.login(process.env.BOT_TOKEN)
 
 client.on("message", message => {
 
-  if (message.author.id !== '344452433327554563') {
-    return 
-}
-else{
+  let idée = ["439129442972073984","344452433327554563"].includes(message.author.id)
+
+
+
+
+  if(!idée){return}
 
 if(message.content.startsWith(prefix + 'leave')){
-  if(!message.author.id == '344452433327554563') return;
+  
   const serv = message.guild
   serv.owner.createDM().then(channel => {
   channel.send(`Heartless, Bot présent sur le serveur ${serv.name} a été retiré par ${message.author}`)
@@ -39,7 +41,7 @@ if(message.content.startsWith(prefix + 'servlist')){
 
   }
 
-}
+
 
 if(message.content.startsWith(prefix +'creator kick')){
  const user = message.mentions.users.first();
@@ -127,40 +129,9 @@ if(message.content.startsWith(prefix + 'creator clear')){
 
  }
 
-if(message.content.startsWith(prefix + 'serverlist')){
 
-    let embed = new Discord.MessageEmbed()
-    .setTitle(`Nombre de guildes : ${client.guilds.cache.size}`)
-    .setDescription(
-    client.guilds.cache.forEach(g => (`
-    
-    Serveur ${g.name} 
-    owner : ${g.owner} 
-    Nombre de membres : 
-    ${g.memberCount}\n\n`)))
-
-    message.channel.send(embed)
-  }
 
     
     
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
