@@ -93,6 +93,7 @@ client.on("message", message => {
                 .setDescription(`
     
                 **ID :  ${(user.id)} **
+
                 **Activité : ${Activité} **
      
                 **Date de création du compte : ${(user.createdAt.toLocaleString("fr-FR", {hour12: false}))}**
