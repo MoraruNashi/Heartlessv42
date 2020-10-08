@@ -91,12 +91,17 @@ client.on("message", message => {
             let ui = new Discord.MessageEmbed()
                .setTitle(user.username)
                .setDescription(`
-               :id: : ${user.id}
-               :first_place: ${user.createdAt.toLocaleString('fr-FR')}
-               :calendar: : ${message.guild.member(user).joinedAt.toLocaleString('fr-FR')}
-               :video_game: ${Activité}
-               :busts_in_silhouette: Liste des roles :
-               ${message.guild.member(user).roles.cache.sort((a,b)=> a.position - b.position).map(r => r.name).toLocaleString().replace(/,/g,"\n\n").replace('@everyone'," ")}
+               :id:\` ${user.id}\`
+
+               :first_place: \`${user.createdAt.toLocaleString('fr-FR')}\`
+
+               :calendar: \`${message.guild.member(user).joinedAt.toLocaleString('fr-FR')}\`
+
+               :video_game: \`${Activité}\`
+
+               :busts_in_silhouette: \`Liste des roles :\`
+
+               ${message.guild.member(user).roles.cache.sort((a,b)=> a.position - b.position).map(r => r.name).toLocaleString().replace(/,/g,"\n").replace('@everyone'," ")}
                
                
                
