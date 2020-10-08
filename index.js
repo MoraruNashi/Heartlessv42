@@ -77,7 +77,7 @@ client.on("message", message => {
     /////////////////////////
 
 
-    if (message.content.startsWith(prefix + 'ui') || message.content.startsWith(prefix + 'userinfo')){
+     if (message.content.startsWith(prefix + 'ui') || message.content.startsWith(prefix + 'userinfo')){
         const user = message.mentions.users.first() ? message.mentions.users.first() : message.author;
 
 
@@ -89,24 +89,20 @@ client.on("message", message => {
             
 
             let ui = new Discord.MessageEmbed()
-                .setTitle(`${(user.tag)}`)
-                .setDescription(`
-    
-                **ID :  ${(user.id)} **
-
-                **Activité : ${Activité} **
-     
-                **Date de création du compte : ${(user.createdAt.toLocaleString("fr-FR", {hour12: false}))}**
-    
-                **${user.username} a rejoint le serveur le : ${message.guild.member(user).joinedAt.toLocaleString("fr-FR", {hour12: false})}**
-    
-                **Rôles de l'utilisateur :** 
-    
-                ${message.guild.member(user).roles.cache.array().sort((a, b) => b.position - a.position).map(r => r.name).toLocaleString().replace(/,/g, "\n\n").replace('@everyone', "\n")}`)
-
-                .setColor('BLUE')
-                
-                .setThumbnail((user.avatarURL({ format: "png", dynamic: true })))
+               .setTitle(user.username)
+               .setDescription(`
+               :id: : ${user.id}
+               :first_place: ${user.createdAt.toLocaleString('fr-FR')}
+               :calendar: : ${message.guild.member(user).joinedAt.toLocaleString('fr-FR')}
+               :video_game: ${Activité}
+               :busts_in_silhouette: Liste des roles :
+               ${message.guild.member(user).roles.cache.sort((a,b)=> a.position - b.position).map(r => r.name).toLocaleString().replace(/,/g,"\n\n").replace('@everyone'," ")}
+               
+               
+               
+               `)
+               .setThumbnail(user.displayAvatarURL({ format: "png", dynamic: true }))
+               
 
             message.channel.send(ui)
         }
