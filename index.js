@@ -758,3 +758,37 @@ client.on('guildCreate', guild => {
 
 });
 
+
+client.on("messageReactionAdd", (reaction, user) => {
+    let target = client.channels.cache.get('645383839736135710')
+    const ticket = new Discord.MessageEmbed()
+    .setColor('#FF9B00')
+    .setTitle('Role notif Heartless') 
+    .setDescription('Recevez toutes les informations concernant Heartless (sondages, nouveautés etc...)')
+    .setFooter('By Moraru_Nashi','https://cdn.discordapp.com/avatars/663090502081445918/a290d88cdafa63da777e967674afc80a.png'); 
+
+    target.send(ticket)
+
+    reaction.message.react('🔔')
+    if (user.bot) return
+    if (reaction.emoji.name === ":bell:") {
+      if (reaction.message.channel.name === '【🔔】rôles'){
+      reaction.remove()
+      user.presence.member.roles.add('645383839736135710')
+      user.dmChannel.send('Votre rôle a été ajouté.')
+      }
+    }
+
+
+});
+
+client.on("messageReactionRemove", (reaction, user) => {
+
+    
+   if(reaction.remove().then(msg => msg.message.member.roles.remove('645383839736135710')))
+    user.dmChannel.send('Votre rôle a été enlevé.')
+
+
+      
+    
+});
