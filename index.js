@@ -524,7 +524,7 @@ client.on("message", message => {
     }
 
     if (message.content.startsWith(prefix + 'suggestion')) {
-        const target = client.channels.cache.get('731587275221368962');
+        const target = client.channels.cache.get('753570950251020340');
         let args = message.content.split(' ').slice(1)
         const suggestion = args.join(' ');
 
