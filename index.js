@@ -8,7 +8,7 @@ hyuga2();
 var prefix = 'h!' //le prefix du bot
  //le token du bots
 
-client.login(process.env.BOT_TOKEN)
+client.login(Process.env.BOT_TOKEN)
 
 
 client.on('ready', function () {
@@ -92,16 +92,16 @@ client.on("message", message => {
                 activity = "Aucune activité en cours";
             } 
             
-            
+            let créé = message.guild.member(user)
 
             let ui = new Discord.MessageEmbed()
                .setTitle(user.username)
                .setDescription(`
                :id: \`${user.id}\`
 
-               :first_place:\`Compte créé le ${user.createdAt.toLocaleString('fr-FR')}\`
+               :first_place:\`Compte créé le ${user.createdAt.getDay()}/${user.createdAt.getMonth()}/${user.createdAt.getFullYear()}\`
 
-               :calendar:\`Join le ${message.guild.member(user).joinedAt.toLocaleString('fr-FR')}\`
+               :calendar:\`Join le ${créé.joinedAt.getDay}/${créé.joinedAt.getMonth}/${créé.joinedAt.getFullYear()}\`
 
                :video_game: \`${activity}\`
                
@@ -129,7 +129,7 @@ client.on("message", message => {
         if (!message.guild) return message.reply("Commande impossible si elle n'est pas exécutée sur un serveur.")
         else {
             let serv = message.guild
-
+            let date = serv.createdAt
 
             const si = new Discord.MessageEmbed()
                 .setColor('BLUE')
@@ -141,7 +141,7 @@ client.on("message", message => {
                     "\n\n\n**Nombre de rôles** : " + (serv.roles.cache.size) +
                     "\n\n\n**Admin** : \n\n" +
                     (serv.members.cache.filter(memb => memb.hasPermission('ADMINISTRATOR')).filter(meb => !meb.user.bot).array().toLocaleString().replace(/,/g, "\n\n")) +
-                    "\n\n\n**Date de création du serveur** : " + (serv.createdAt.toLocaleString('fr-FR')))
+                    "\n\n\n**Date de création du serveur** : " + (date.getDay()) + "/" + (date.getMonth()) + "/" +  (date.getFullYear()))
                 .setThumbnail(serv.iconURL({ format: "png", dynamic: true }))
                 .setFooter('u!serverinfo by mr_shoco','https://images-ext-2.discordapp.net/external/HsMb4ZEcrvMxwaG8Y3b43daCDj3jE2MkS99UgR_ywdc/https/cdn.discordapp.com/avatars/439129442972073984/017edd7317279c6c58f23363cb9f22ee.png')
             message.channel.send(si)
@@ -524,13 +524,14 @@ client.on("message", message => {
     }
 
     if (message.content.startsWith(prefix + 'suggestion')) {
-        const target = client.channels.cache.get('753570950251020340');
+        let target = message.guild.channels.cache.get('672141962324869120')
         let args = message.content.split(' ').slice(1)
         const suggestion = args.join(' ');
 
         if (!suggestion) return message.reply('veuillez ajouter un argument.')
-        else
-            message.channel.send('Votre suggestion a bien été envoyée, merci de votre participation pour l\'avenir de Heartless :thumbsup:')
+        
+        if(suggestion) return
+        message.channel.send('Votre suggestion a bien été envoyée, merci de votre participation pour l\'avenir de Heartless :thumbsup:')
         target.send(`Suggestion de ${message.author} : ${suggestion}`)
 
     }
@@ -692,7 +693,7 @@ client.on("message", message => {
     // Appelle la fonction getData() et affichage les données retournées
     getData().then(value => {
         let Grade = value.badge
-        if (Grade === " Visiteur"){
+        if (Grade === "Visiteur"){
             Grade = "Joueur";
         } 
 
