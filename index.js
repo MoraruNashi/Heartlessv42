@@ -8,7 +8,7 @@ hyuga2();
 var prefix = 'h!' //le prefix du bot
  //le token du bots
 
-client.login(Process.env.BOT_TOKEN)
+client.login(process.env.BOT_TOKEN)
 
 
 client.on('ready', function () {
@@ -77,7 +77,7 @@ client.on("message", message => {
     /////////////////////////
 
 
-    if (message.content.startsWith(prefix + 'ui') || message.content.startsWith(prefix + 'userinfo')){
+     if (message.content.startsWith(prefix + 'ui') || message.content.startsWith(prefix + 'userinfo')){
         const user = message.mentions.users.first() ? message.mentions.users.first() : message.author;
 
 
@@ -95,22 +95,14 @@ client.on("message", message => {
             let créé = message.guild.member(user)
 
             let ui = new Discord.MessageEmbed()
-               .setTitle(user.username)
+               .setTitle(`➥ ${user.username}`)
                .setDescription(`
                :id: \`${user.id}\`
-
                :first_place:\`Compte créé le ${user.createdAt.getDay()}/${user.createdAt.getMonth()}/${user.createdAt.getFullYear()}\`
-
-               :calendar:\`Join le ${créé.joinedAt.getDay}/${créé.joinedAt.getMonth}/${créé.joinedAt.getFullYear()}\`
-
+               :calendar:\`Join le ${créé.joinedAt.getDay()}/${créé.joinedAt.getMonth()}/${créé.joinedAt.getFullYear()}\`
                :video_game: \`${activity}\`
-               
                :busts_in_silhouette: \`Liste des roles :\`
-
                **${message.guild.member(user).roles.cache.sort((a,b)=> b.position - a.position).map(r => r.name).toLocaleString().replace(/,/g,"/").replace('@everyone'," ")}**
-               
-               
-               
                `)
                .setThumbnail(user.avatarURL({ format: "png", dynamic: true }))
                .setFooter('h!userinfo by Blouhh',"https://cdn.discordapp.com/avatars/604701457350000641/970fdee675fae7181683b5bd9dbe3cad.png")
@@ -133,20 +125,21 @@ client.on("message", message => {
 
             const si = new Discord.MessageEmbed()
                 .setColor('BLUE')
-                .setTitle((serv.name))
-                .setDescription(
-                    "\n\n\n**Owner** : " + (serv.owner.user.tag) +
-                    "\n\n\n**Nombre de bots/membres** : " + (message.guild.members.cache.filter(val => val.user.bot).size) + ("/") + (serv.memberCount) +
-                    "\n\n\n**Nombre de salons** : " + (serv.channels.cache.size) +
-                    "\n\n\n**Nombre de rôles** : " + (serv.roles.cache.size) +
-                    "\n\n\n**Admin** : \n\n" +
-                    (serv.members.cache.filter(memb => memb.hasPermission('ADMINISTRATOR')).filter(meb => !meb.user.bot).array().toLocaleString().replace(/,/g, "\n\n")) +
-                    "\n\n\n**Date de création du serveur** : " + (date.getDay()) + "/" + (date.getMonth()) + "/" +  (date.getFullYear()))
+                .setTitle(`➥ ${serv.name}`)
+                .setDescription(`
+                    👑Owner: \`${serv.owner.user.tag}\`
+                    👥Nombre de membres: \`${serv.memberCount}\` 
+                    🚪Nombre de channels: \`${(serv.channels.cache.size)}\`
+                    📜Nombre de rôles: \`${(serv.roles.cache.size)}\`
+                    📌Admin : 
+                    ${serv.members.cache.filter(memb => memb.hasPermission('ADMINISTRATOR')).filter(meb => !meb.user.bot).array().toLocaleString().replace(/,/g, ", ")}
+                    Date de création du serveur: \`${(date.getDay())}/${(date.getMonth())}/${(date.getFullYear())}\``)
                 .setThumbnail(serv.iconURL({ format: "png", dynamic: true }))
-                .setFooter('u!serverinfo by mr_shoco','https://images-ext-2.discordapp.net/external/HsMb4ZEcrvMxwaG8Y3b43daCDj3jE2MkS99UgR_ywdc/https/cdn.discordapp.com/avatars/439129442972073984/017edd7317279c6c58f23363cb9f22ee.png')
+                .setFooter('u!serverinfo by mr_shoco || Design by Blouhh','https://images-ext-2.discordapp.net/external/HsMb4ZEcrvMxwaG8Y3b43daCDj3jE2MkS99UgR_ywdc/https/cdn.discordapp.com/avatars/439129442972073984/017edd7317279c6c58f23363cb9f22ee.png')
             message.channel.send(si)
         }
     }
+    
     
 
     //////////////////////////////////////////////////////
