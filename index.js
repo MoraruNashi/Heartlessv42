@@ -692,7 +692,7 @@ client.on("message", message => {
     // Appelle la fonction getData() et affichage les données retournées
     getData().then(value => {
         let Grade = value.badge
-        if (Grade === "Visiteur"){
+        if (Grade === " Visiteur"){
             Grade = "Joueur";
         } 
 
