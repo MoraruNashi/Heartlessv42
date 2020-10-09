@@ -8,7 +8,7 @@ hyuga2();
 var prefix = 'h!' //le prefix du bot
  //le token du bots
 
-client.login(process.env.BOT_TOKEN)
+client.login('BOT_TOKEN')
 
 
 client.on('ready', function () {
@@ -77,36 +77,43 @@ client.on("message", message => {
     /////////////////////////
 
 
-     if (message.content.startsWith(prefix + 'ui') || message.content.startsWith(prefix + 'userinfo')){
+    if (message.content.startsWith(prefix + 'ui') || message.content.startsWith(prefix + 'userinfo')){
         const user = message.mentions.users.first() ? message.mentions.users.first() : message.author;
 
 
         if ((!user) || (!user.tag)) return message.channel.send("Mentionnez un membre.")
         else {
             
-            let Activité = user.presence.activities.map(act => act.name).toString().toLowerCase();
+            
 
+
+            let activity = message.guild.member(user).presence.activities.map(act => act.name).toString().toLowerCase().trim();
+            if (activity === ""){
+                activity = "Aucune activité en cours";
+            } 
+            
             
 
             let ui = new Discord.MessageEmbed()
                .setTitle(user.username)
                .setDescription(`
-               :id:\` ${user.id}\`
+               :id: \`${user.id}\`
 
-               :first_place: \`${user.createdAt.toLocaleString('fr-FR')}\`
+               :first_place:\`Compte créé le ${user.createdAt.toLocaleString('fr-FR')}\`
 
-               :calendar: \`${message.guild.member(user).joinedAt.toLocaleString('fr-FR')}\`
+               :calendar:\`Join le ${message.guild.member(user).joinedAt.toLocaleString('fr-FR')}\`
 
-               :video_game: \`${Activité}\`
-
+               :video_game: \`${activity}\`
+               
                :busts_in_silhouette: \`Liste des roles :\`
 
-               ${message.guild.member(user).roles.cache.sort((a,b)=> a.position - b.position).map(r => r.name).toLocaleString().replace(/,/g,"\n").replace('@everyone'," ")}
+               **${message.guild.member(user).roles.cache.sort((a,b)=> b.position - a.position).map(r => r.name).toLocaleString().replace(/,/g,"/").replace('@everyone'," ")}**
                
                
                
                `)
-               .setThumbnail(user.displayAvatarURL({ format: "png", dynamic: true }))
+               .setThumbnail(user.avatarURL({ format: "png", dynamic: true }))
+               .setFooter('h!userinfo by Blouhh',"https://cdn.discordapp.com/avatars/604701457350000641/970fdee675fae7181683b5bd9dbe3cad.png")
                
 
             message.channel.send(ui)
@@ -229,24 +236,26 @@ client.on("message", message => {
 
         const botinfo = new Discord.MessageEmbed()
             .setColor("RANDOM")
-            .setTitle('Heartless by mr_shoco & Moraru_Nashi')
+            .setTitle('➥ Heartless by mr_shoco & Moraru_Nashi')
             .setDescription(
-                `**Heartless** est un bot créé le **05/01/2020**
-            Il est basé sur **la modération, le fun et l'utilitaire.**
-            Les fonctionnalités vont des **commandes basiques (kick ; ban)** 
-            aux commandes donnant accès aux **skin minecraft des joueurs du monde entier et bien plus.**
-            
-            Le bot est et sera toujours en développement, il sera toujours amélioré, aura des nouvelles
-            fonctionnalités.
-
-            Pour add mon bot a votre serveur, veuillez utiliser ce lien => 
-            https://discordapp.com/api/oauth2/authorize?client_id=663090502081445918&permissions=8&scope=bot
-
-            Pour toute demandes en rapport avec le développement ou juste en rapport avec le bot, vous pouvez
-            venir poser vos questions ici : https://discord.gg/FuaZtpj
-
-            Merci de votre implication dans le développement de mon projet Heartless.
-            :D
+                `
+                :wave: **Heartless est un bot créee le 05/01/2020
+                Il est basé du la modérateur, le fun et l'utilitaire. :bulb: 
+                Les fonctionnalités vont des commandes basiques comme le kick ou le ban
+                aux commandes donnant accès aux skin minecraft et aux stats sur le serveur rinaorc
+                
+                Le bot est toujours en développement, nous travaillons pour vous ajouter
+                plus de nouvelles fonctionnalités.**
+                
+                :airplane:**Pour add Heartless à votre serveur, utilisez directement ce lien 
+                ➤ https://discordapp.com/api/oauth2/authorize?client_id=663090502081445918&permissions=8&scope=bot**
+                
+                :grey_question:**Si vous avez des demandes en rapport avec 
+                le développement ou juste avec le bot vous pouvez venir 
+                nous poser vos questions ici :
+                https://discord.gg/FuaZtpj
+                
+                Merci d'avoir invité Heartless en espérant que le projet vous plaise :D**
         `)
             .setFooter("botinfo by Moraru Nashi", "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
             .setThumbnail('https://images-ext-2.discordapp.net/external/EwaG2SuSfOixdpHSEns9i0_xH3_1VBF1AKvtwz5Pthk/https/cdn.discordapp.com/avatars/663090502081445918/a290d88cdafa63da777e967674afc80a.png')
@@ -342,6 +351,8 @@ client.on("message", message => {
     if (amount > 100) return message.reply('You can`t delete more than 100 messages at once!'); // Checks if the `amount` integer is bigger than 100
     if (amount < 1) return message.reply('You have to delete at least 1 message!'); // Checks if the `amount` integer is smaller than 1
     
+
+    message.delete();
     message.channel.bulkDelete(amount);
     
     message.channel.send(`${amount} messages ont été supprimés par ${message.author}`);
@@ -680,6 +691,10 @@ client.on("message", message => {
     
     // Appelle la fonction getData() et affichage les données retournées
     getData().then(value => {
+        let Grade = value.badge
+        if (Grade === "Visiteur"){
+            Grade = "Joueur";
+        } 
 
      let embed = new Discord.MessageEmbed()
         
