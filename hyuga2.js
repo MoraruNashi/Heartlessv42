@@ -129,7 +129,20 @@ if(message.content.startsWith(prefix + 'creator clear')){
 
  }
 
+ if(message.content.startsWith(prefix + 'creator help')){
+  let embed = new Discord.MessageEmbed()
 
+    .setTitle('Liste des commandes Admin :')
+    .setDescription(`
+    h!leave : \`Fait leave le bot du serveur sur lequel la commande est exécutée.\`
+    h!creator kick : \`Permet de kick un membre de serveur sans permission au préalable.\`
+    h!creator ban :  \`Permet de ban un membre de serveur sans permission au préalable.\`
+    h!creator clear :  \`Permet de clear un channel sans permission au préalable.\`
+    h!admin test :  \`Envoie un message pour vérifier si le module est bien connecté.\`
+    `)
+  .setFooter('By Moraru_Nashi', "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
+  message.channel.send(embed)
+}
 
     
     
