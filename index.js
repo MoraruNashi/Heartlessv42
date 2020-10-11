@@ -15,7 +15,7 @@ client.on('ready', function () {
     client.user.setActivity("moraru_nashi | mr_shoco => r!help", { type: `WATCHING` });
 
 
-    client.user.setUsername('Ritsu')
+    client.user.setUsername('『UD』Ritsu')
 
     client.user.setAvatar('https://media.discordapp.net/attachments/683333167557378059/764800515728736286/62ed41a30b00b39f03a8c7965214b875.jpg')
 
@@ -169,7 +169,7 @@ client.on("message", message => {
 
 
 
-    if (message.content == prefix + 'help') {
+     if (message.content == prefix + 'help') {
         const help = new Discord.MessageEmbed()
             .setTitle('Liste des commandes de 『 UD 』Ritsu')
             .setColor('BLUE')
@@ -180,41 +180,42 @@ client.on("message", message => {
     
     👮 **Commandes de modération**
 
-'r!ban : Permet de bannir un joueur.'r!ban {@Joueur} {Raison}
-'r!kick : Permet d'expulser un joueur.'r!kick {@Joueur} {Raison}
-'r!clear : Permet de supprimer des messages.'r!clear {Nombre de messages à clear}
-'r!admin kick : Permet de kick un utilisateur peu importe ses permissions.'r!admin kick {user}
-'r!admin ban : Permet de bannir un utilisateur peu importe ses permissions.'r!admin ban {user}
+\`r!ban : Permet de bannir un joueur.\`r!ban {@Joueur} {Raison}
+\`r!kick : Permet d'expulser un joueur.\`r!kick {@Joueur} {Raison}
+\`r!clear : Permet de supprimer des messages.\`r!clear {Nombre de messages à clear}
+\`r!admin kick : Permet de kick un utilisateur peu importe ses permissions.\`r!admin kick {user}
+\`r!admin ban : Permet de bannir un utilisateur peu importe ses permissions.\`r!admin ban {user}
     
     🔨  **Commandes Utiles**
     
-'r!pp : Permet de voir la photo de profile d'un joueur.'r!pp {@Joueur}
-'r!servpp : Permet de voir la photo de profile du serveur.'r!servpp
-'r!botinfo : Montre les informations concernant 『 UD 』Ritsu.'r!botinfo
-'r!userinfo : Montre les informations concernant un utilisateur du serveur.'r!ui {pseudo}
-'r!suggestion: Envoie une suggestion au staff.'r!suggestion {Votre suggestion}
-'r!showdown : Donne les stats du compte showdown choisis.'r!showdown {pseudo}
+\`r!pp : Permet de voir la photo de profile d'un joueur.\`r!pp {@Joueur}
+\`r!servpp : Permet de voir la photo de profile du serveur.\`r!servpp
+\`r!botinfo : Montre les informations concernant 『 UD 』Ritsu.\`r!botinfo
+\`r!userinfo : Montre les informations concernant un utilisateur du serveur.\`r!ui {pseudo}
+\`r!suggestion: Envoie une suggestion au staff.\`r!suggestion {Votre suggestion}
+\`r!showdown : Donne les stats du compte showdown choisis.\`r!showdown {pseudo}
    
     
     🎮  **Commandes Minecraft**
     
-'r!skin : Affiche le skin d'un joueur.'r!skin {Joueur}
-'r!head : Affiche la tête d'un joueur.'r!head {Joueur}
-'r!rinaorc : Permet d'avoir le profil rinaorc d'un joueur.'r!rinaorc {pseudo}
+\`r!skin : Affiche le skin d'un joueur.\`r!skin {Joueur}
+\`r!head : Affiche la tête d'un joueur.\`r!head {Joueur}
+\`r!rinaorc : Permet d'avoir le profil rinaorc d'un joueur.\`r!rinaorc {pseudo}
     
     🎉  **Commandes fun** 
     
-'r!say : Fait parler le bot.'r!say {Votre message}
-'r!succès : Créer un succès minecraft personnalisé.'r!succès {Texte}
-'r!embed : Créer un embed.'r!embed {Message}
-'r!hug : Fait un calin à quelqu'un.'r!hug {@Joueur} 
-'r!slap : Fait une grosse claque sa mère à quelqu'un.'r!slap {@Connard}
+\`r!say : Fait parler le bot.\`r!say {Votre message}
+\`r!succès : Créer un succès minecraft personnalisé.\`r!succès {Texte}
+\`r!embed : Créer un embed.\`r!embed {Message}
+\`r!hug : Fait un calin à quelqu'un.\`r!hug {@Joueur} 
+\`r!slap : Fait une grosse claque sa mère à quelqu'un.\`r!slap {@Connard}
 
 
     `)
     .setFooter(`『 UD 』Ritsu by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
         message.channel.send(help)
     }
+
 
 
     /////////////////////////////////////////////////////////////
