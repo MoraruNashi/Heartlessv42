@@ -6,7 +6,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 var prefix = 'r!'
 
-client.login(process.env.TOKEN_BOT)
+client.login(process.env.BOT_TOKEN)
 
 
 
