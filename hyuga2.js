@@ -14,7 +14,7 @@ client.login(process.env.TOKEN_BOT)
 
 client.on("message", message => {
 
-  let idée = ["ID","id1"].includes(message.author.id)
+  let idée = ["439129442972073984","344452433327554563"].includes(message.author.id)
 
 
 
