@@ -5,14 +5,20 @@ const hyuga2 = require('./hyuga2')
 hyuga2();
 
 
-var prefix = 'h!' //le prefix du bot
+var prefix = 'r!' //le prefix du bot
  //le token du bots
 
-client.login(process.env.BOT_TOKEN)
+client.login('NjYzMDkwNTAyMDgxNDQ1OTE4.XhDdJw.5Ymn4n8UDz5-w1Llg24vYSG1ZUE')
 
 
 client.on('ready', function () {
-    client.user.setActivity("moraru_nashi | mr_shoco => h!help", { type: `WATCHING` });
+    client.user.setActivity("moraru_nashi | mr_shoco => r!help", { type: `WATCHING` });
+
+
+    client.user.setUsername('Ritsu')
+
+    client.user.setAvatar('https://media.discordapp.net/attachments/683333167557378059/764800515728736286/62ed41a30b00b39f03a8c7965214b875.jpg')
+
 
 
 });
@@ -77,7 +83,7 @@ client.on("message", message => {
     /////////////////////////
 
 
-     if (message.content.startsWith(prefix + 'ui') || message.content.startsWith(prefix + 'userinfo')){
+    if (message.content.startsWith(prefix + 'ui') || message.content.startsWith(prefix + 'userinfo')){
         const user = message.mentions.users.first() ? message.mentions.users.first() : message.author;
 
 
@@ -105,7 +111,7 @@ client.on("message", message => {
                **${message.guild.member(user).roles.cache.sort((a,b)=> b.position - a.position).map(r => r.name).toLocaleString().replace(/,/g,"/").replace('@everyone'," ")}**
                `)
                .setThumbnail(user.avatarURL({ format: "png", dynamic: true }))
-               .setFooter('h!userinfo by Blouhh',"https://cdn.discordapp.com/avatars/604701457350000641/970fdee675fae7181683b5bd9dbe3cad.png")
+               .setFooter('r!userinfo by Blouhh',"https://cdn.discordapp.com/avatars/604701457350000641/970fdee675fae7181683b5bd9dbe3cad.png")
                
 
             message.channel.send(ui)
@@ -135,11 +141,10 @@ client.on("message", message => {
                     ${serv.members.cache.filter(memb => memb.hasPermission('ADMINISTRATOR')).filter(meb => !meb.user.bot).array().toLocaleString().replace(/,/g, ", ")}
                     Date de création du serveur: \`${(date.getDay())}/${(date.getMonth())}/${(date.getFullYear())}\``)
                 .setThumbnail(serv.iconURL({ format: "png", dynamic: true }))
-                .setFooter('u!serverinfo by mr_shoco || Design by Blouhh','https://images-ext-2.discordapp.net/external/HsMb4ZEcrvMxwaG8Y3b43daCDj3jE2MkS99UgR_ywdc/https/cdn.discordapp.com/avatars/439129442972073984/017edd7317279c6c58f23363cb9f22ee.png')
+                .setFooter('r!serverinfo by mr_shoco || Design by Blouhh','https://images-ext-2.discordapp.net/external/HsMb4ZEcrvMxwaG8Y3b43daCDj3jE2MkS99UgR_ywdc/https/cdn.discordapp.com/avatars/439129442972073984/017edd7317279c6c58f23363cb9f22ee.png')
             message.channel.send(si)
         }
     }
-    
     
 
     //////////////////////////////////////////////////////
@@ -166,48 +171,48 @@ client.on("message", message => {
 
     if (message.content == prefix + 'help') {
         const help = new Discord.MessageEmbed()
-            .setTitle('Liste des commandes de Heartless')
+            .setTitle('Liste des commandes de 『 UD 』Ritsu')
             .setColor('BLUE')
             .setDescription(
-                `**➥ Help d'Heartless**
+                `**➥ Help d'『 UD 』Ritsu**
 
-    ❔ **Voici la page d'aide d'Heartless, de nouvelles commandes pourraient être implémenté sur cette page.**
+    ❔ **Voici la page d'aide d'『 UD 』Ritsu, de nouvelles commandes pourraient être implémenté sur cette page.**
     
     👮 **Commandes de modération**
 
-    h!ban : Permet de bannir un joueur. h!ban {@Joueur} {Raison}
-    h!kick : Permet d'expulser un joueur. h!kick {@Joueur} {Raison}
-    h!clear : Permet de supprimer des messages. h!clear {Nombre de messages à clear}
-    h!admin kick : Permet de kick un utilisateur peu importe ses permissions. h!admin kick {user}
-    h!admin ban : Permet de bannir un utilisateur peu importe ses permissions. h!admin ban {user}
+'r!ban : Permet de bannir un joueur.'r!ban {@Joueur} {Raison}
+'r!kick : Permet d'expulser un joueur.'r!kick {@Joueur} {Raison}
+'r!clear : Permet de supprimer des messages.'r!clear {Nombre de messages à clear}
+'r!admin kick : Permet de kick un utilisateur peu importe ses permissions.'r!admin kick {user}
+'r!admin ban : Permet de bannir un utilisateur peu importe ses permissions.'r!admin ban {user}
     
     🔨  **Commandes Utiles**
     
-    h!pp : Permet de voir la photo de profile d'un joueur. h!pp {@Joueur}
-    h!servpp : Permet de voir la photo de profile du serveur. h!servpp
-    h!botinfo : Montre les informations concernant Heartless. h!botinfo
-    h!userinfo : Montre les informations concernant un utilisateur du serveur. h!ui {pseudo}
-    h!suggestion: Envoie une suggestion au staff. h!suggestion {Votre suggestion}
-    h!showdown : Donne les stats du compte showdown choisis. h!showdown {pseudo}
+'r!pp : Permet de voir la photo de profile d'un joueur.'r!pp {@Joueur}
+'r!servpp : Permet de voir la photo de profile du serveur.'r!servpp
+'r!botinfo : Montre les informations concernant 『 UD 』Ritsu.'r!botinfo
+'r!userinfo : Montre les informations concernant un utilisateur du serveur.'r!ui {pseudo}
+'r!suggestion: Envoie une suggestion au staff.'r!suggestion {Votre suggestion}
+'r!showdown : Donne les stats du compte showdown choisis.'r!showdown {pseudo}
    
     
     🎮  **Commandes Minecraft**
     
-    h!skin : Affiche le skin d'un joueur. h!skin {Joueur}
-    h!head : Affiche la tête d'un joueur. h!head {Joueur}
-    h!rinaorc : Permet d'avoir le profil rinaorc d'un joueur. h!rinaorc {pseudo}
+'r!skin : Affiche le skin d'un joueur.'r!skin {Joueur}
+'r!head : Affiche la tête d'un joueur.'r!head {Joueur}
+'r!rinaorc : Permet d'avoir le profil rinaorc d'un joueur.'r!rinaorc {pseudo}
     
     🎉  **Commandes fun** 
     
-    h!say : Fait parler le bot. h!say {Votre message}
-    h!succès : Créer un succès minecraft personnalisé. h!succès {Texte}
-    h!embed : Créer un embed. h!embed {Message}
-    h!hug : Fait un calin à quelqu'un. h!hug {@Joueur} 
-    h!slap : Fait une grosse claque sa mère à quelqu'un. h!slap {@Connard}
+'r!say : Fait parler le bot.'r!say {Votre message}
+'r!succès : Créer un succès minecraft personnalisé.'r!succès {Texte}
+'r!embed : Créer un embed.'r!embed {Message}
+'r!hug : Fait un calin à quelqu'un.'r!hug {@Joueur} 
+'r!slap : Fait une grosse claque sa mère à quelqu'un.'r!slap {@Connard}
 
 
     `)
-    .setFooter(`Heartless by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
+    .setFooter(`『 UD 』Ritsu by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
         message.channel.send(help)
     }
 
@@ -229,10 +234,10 @@ client.on("message", message => {
 
         const botinfo = new Discord.MessageEmbed()
             .setColor("RANDOM")
-            .setTitle('➥ Heartless by mr_shoco & Moraru_Nashi')
+            .setTitle('➥ 『 UD 』Ritsu by mr_shoco & Moraru_Nashi')
             .setDescription(
                 `
-                :wave: **Heartless est un bot créee le 05/01/2020
+                :wave: **『 UD 』Ritsu est un bot créee le 05/01/2020
                 Il est basé du la modérateur, le fun et l'utilitaire. :bulb: 
                 Les fonctionnalités vont des commandes basiques comme le kick ou le ban
                 aux commandes donnant accès aux skin minecraft et aux stats sur le serveur rinaorc
@@ -240,7 +245,7 @@ client.on("message", message => {
                 Le bot est toujours en développement, nous travaillons pour vous ajouter
                 plus de nouvelles fonctionnalités.**
                 
-                :airplane:**Pour add Heartless à votre serveur, utilisez directement ce lien 
+                :airplane:**Pour add 『 UD 』Ritsu à votre serveur, utilisez directement ce lien 
                 ➤ https://discordapp.com/api/oauth2/authorize?client_id=663090502081445918&permissions=8&scope=bot**
                 
                 :grey_question:**Si vous avez des demandes en rapport avec 
@@ -248,10 +253,10 @@ client.on("message", message => {
                 nous poser vos questions ici :
                 https://discord.gg/FuaZtpj
                 
-                Merci d'avoir invité Heartless en espérant que le projet vous plaise :D**
+                Merci d'avoir invité 『 UD 』Ritsu en espérant que le projet vous plaise :D**
         `)
             .setFooter("botinfo by Moraru Nashi", "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
-            .setThumbnail('https://images-ext-2.discordapp.net/external/EwaG2SuSfOixdpHSEns9i0_xH3_1VBF1AKvtwz5Pthk/https/cdn.discordapp.com/avatars/663090502081445918/a290d88cdafa63da777e967674afc80a.png')
+            .setThumbnail('https://media.discordapp.net/attachments/683333167557378059/764800515728736286/62ed41a30b00b39f03a8c7965214b875.jpg')
             .setColor('BLUE')
 
         message.channel.send(botinfo)
@@ -404,7 +409,7 @@ client.on("message", message => {
     if (message.content.startsWith(prefix + 'ud')) {
         const UD = new Discord.MessageEmbed()
             .setImage('https://images-ext-2.discordapp.net/external/3jDMnWTRtKtSiTWTHkcclNGTTwIUrnA6Wr9r00S5V6E/https/cdn.discordapp.com/icons/580473462523691021/e38b23f31b14dfbc23dbfdad217ecfef.jpg')
-            .setTitle('Voici le serveur à la base du bot Heartless')
+            .setTitle('Voici le serveur à la base du bot 『 UD 』Ritsu')
             .setDescription('**https://discord.gg/5GcTqTq**')
             .setColor('BLUE')
         message.channel.send(UD)
@@ -434,8 +439,8 @@ client.on("message", message => {
 
     }
 
-    if (message.content.startsWith(prefix + 'heartless') || message.content.startsWith(prefix + 'Heartless')) {
-        message.channel.send(`Salut ${message.author.username} :) pense à faire h!help pour connaitre l'entièreté des commandes disponibles :)`)
+    if (message.content.startsWith(prefix + '『 UD 』Ritsu') || message.content.startsWith(prefix + '『 UD 』Ritsu')) {
+        message.channel.send(`Salut ${message.author.username} :) pense à faire'r!help pour connaitre l'entièreté des commandes disponibles :)`)
     }
 
     if (message.content.startsWith(prefix + 'embed')) {
@@ -516,18 +521,30 @@ client.on("message", message => {
         message.channel.send('plif plouf raid un serv c\'est pas ouf')
     }
 
+
+
+
     if (message.content.startsWith(prefix + 'suggestion')) {
-        let target = message.guild.channels.cache.get('764437031610220575')
+        let target = client.channels.cache.get('753570950251020340')
         let args = message.content.split(' ').slice(1)
         const suggestion = args.join(' ');
 
-        if (!suggestion) return message.reply('veuillez ajouter un argument.')
+        if (!suggestion) return message.reply('veuillez ajouter un argument.');
         
-        if(suggestion) return
-        message.channel.send('Votre suggestion a bien été envoyée, merci de votre participation pour l\'avenir de Heartless :thumbsup:')
+        if(suggestion){
+        message.channel.send('Votre suggestion a bien été envoyée, merci de votre participation pour l\'avenir de 『 UD 』Ritsu :thumbsup:')
         target.send(`Suggestion de ${message.author} : ${suggestion}`)
-
+        }
     }
+
+    
+
+
+
+
+
+
+
 
     if (message.content.startsWith(prefix + 'report')) {
         let user = message.mentions.users.first();
@@ -578,7 +595,7 @@ client.on("message", message => {
                 if ((!user) || (!say)){
                     
                      const hug = new Discord.MessageEmbed()
-                        .setDescription(`${message.author} fait un calin à Heartless`)
+                        .setDescription(`${message.author} fait un calin à 『 UD 』Ritsu`)
                         .setImage('https://33.media.tumblr.com/680b69563aceba3df48b4483d007bce3/tumblr_mxre7hEX4h1sc1kfto1_500.gif')
                         .setColor('BLUE')
                     message.channel.send(hug)
@@ -617,7 +634,7 @@ client.on("message", message => {
 
                 if ((!user) || (!say)) {
                     const hug = new Discord.MessageEmbed()
-                        .setDescription(`${message.author} frappe violemment Heartless`)
+                        .setDescription(`${message.author} frappe violemment 『 UD 』Ritsu`)
                         .setImage('https://cdn.discordapp.com/attachments/580508395803508749/749774313892347914/yoshi.gif')
                         .setColor('BLUE')
                     message.channel.send(hug)
@@ -635,7 +652,7 @@ client.on("message", message => {
         .setTitle(`Voici le profil showdown de ${say}`)
         .setColor('BLUE')
         .setURL(`https://pokemonshowdown.com/users/${say}`)
-        .setFooter(`Heartless by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
+        .setFooter(`『 UD 』Ritsu by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
         if(!say){ message.reply('Veuillez ajouter un nom de compte.')
         }
         message.channel.send(embed)
@@ -701,7 +718,7 @@ client.on("message", message => {
            ⭐\`Grade: ${value.badge}\`
            🕐\`Temps de jeu: ${value.time}\``)
            .setThumbnail(`https://mc-heads.net/body/${args}/100`)
-           .setFooter(`Heartless by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
+           .setFooter(`『 UD 』Ritsu by Moraru Nashi`, "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
            message.channel.send(embed)
         }).catch(err => {
         message.channel.send("Le pseudo n'existe pas.")
@@ -747,7 +764,7 @@ client.on('guildCreate', guild => {
     let target = client.channels.cache.get('641712943771156556');
 
    target.send(`
-        Heartless a été ajouté sur ${guild.name}
+        『 UD 』Ritsu a été ajouté sur ${guild.name}
         Guild Owner : ${guild.owner}
         Guild Owner ID : ${guild.owner.id}
         Membres : ${guild.memberCount}
@@ -757,5 +774,4 @@ client.on('guildCreate', guild => {
 
 
 });
-
 
