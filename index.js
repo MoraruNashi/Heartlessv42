@@ -8,7 +8,7 @@ hyuga2();
 var prefix = 'r!' //le prefix du bot
  //le token du bots
 
-client.login('NjYzMDkwNTAyMDgxNDQ1OTE4.XhDdJw.5Ymn4n8UDz5-w1Llg24vYSG1ZUE')
+client.login(process.env.TOKEN_BOT)
 
 
 client.on('ready', function () {
