@@ -4,13 +4,17 @@ const hyuga2 = () =>{
 module.exports = hyuga2;
 const Discord = require('discord.js'); 
 const client = new Discord.Client();
-var prefix = 'h!'
+var prefix = 'r!'
 
-client.login(process.env.BOT_TOKEN)
+client.login(process.env.TOKEN_BOT)
+
+
+
+
 
 client.on("message", message => {
 
-  let idée = ["439129442972073984","344452433327554563"].includes(message.author.id)
+  let idée = ["ID","id1"].includes(message.author.id)
 
 
 
@@ -98,7 +102,7 @@ if(message.content.startsWith(prefix +'creator kick')){
 
   
 
-if(message.content.startsWith('h?say')){
+if(message.content.startsWith('r?say')){
   if(message.guild){return}
 
   let args = message.content.split(' ').slice(1)
@@ -122,29 +126,31 @@ if(message.content.startsWith(prefix + 'creator clear')){
   
   if (amount > 100) return message.reply('You can`t delete more than 100 messages at once!'); // Checks if the `amount` integer is bigger than 100
   if (amount < 1) return message.reply('You have to delete at least 1 message!'); // Checks if the `amount` integer is smaller than 1
-  
+  message.delete();
   message.channel.bulkDelete(amount)
   message.channel.send(`${amount} messages ont été supprimés par ${message.author}`).then(async (m) => await (await m.delete()))
   
 
  }
 
+
  if(message.content.startsWith(prefix + 'creator help')){
   let embed = new Discord.MessageEmbed()
 
     .setTitle('Liste des commandes Admin :')
     .setDescription(`
-    h!leave : \`Fait leave le bot du serveur sur lequel la commande est exécutée.\`
-    h!creator kick : \`Permet de kick un membre de serveur sans permission au préalable.\`
-    h!creator ban :  \`Permet de ban un membre de serveur sans permission au préalable.\`
-    h!creator clear :  \`Permet de clear un channel sans permission au préalable.\`
-    h!admin test :  \`Envoie un message pour vérifier si le module est bien connecté.\`
+    r!leave : \`Fait leave le bot du serveur sur lequel la commande est exécutée.\`
+    r!creator kick : \`Permet de kick un membre de serveur sans permission au préalable.\`
+    r!creator ban :  \`Permet de ban un membre de serveur sans permission au préalable.\`
+    r!creator clear :  \`Permet de clear un channel sans permission au préalable.\`
+    r!admin test :  \`Envoie un message pour vérifier si le module est bien connecté.\`
     `)
   .setFooter('By Moraru_Nashi', "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
   message.channel.send(embed)
 }
 
-    
+
+
     
 
 });
