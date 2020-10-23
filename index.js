@@ -751,6 +751,13 @@ client.on('guildMemberAdd', member => {
     
 
     channel.send(`:partying_face: **Bienvenue sur le serveur ${member.user.username} ! Nous sommes maintenant ${member.guild.memberCount}** :partying_face:`);
+ 
+ let channelC = member.guild.channels.cache.get("769194586404421672"); 
+	let max = member.guild.memberCount;
+	let format = "🌹 Membres :" + max;
+	if(channelC.name !== format){
+		channelC.setName(format);
+	}
 
 
 });
@@ -763,6 +770,13 @@ client.on('guildMemberRemove', member => {
     if (!channel) { return }
 
     channel.send(`**:wave: Au revoir ${member.user.username} ! Nous sommes maintenant ${member.guild.memberCount} :wave:**`);
+ 
+ let channelC = member.guild.channels.cache.get("769194586404421672"); 
+	let max = member.guild.memberCount;
+	let format = "🌹 Membres :" + max;
+	if(channelC.name !== format){
+		channelC.setName(format);
+	}
 
 
 });
