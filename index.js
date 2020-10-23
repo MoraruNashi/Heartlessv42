@@ -207,7 +207,8 @@ client.on("message", message => {
 \`r!say : Fait parler le bot.\`r!say {Votre message}
 \`r!succès : Créer un succès minecraft personnalisé.\`r!succès {Texte}
 \`r!embed : Créer un embed.\`r!embed {Message}
-\`r!hug : Fait un calin à quelqu'un.\`r!hug {@Joueur} 
+\`r!hug : Fait un calin à quelqu'un.\`r!hug {@Joueur}
+\`r!pile ou face : Le bot fait un pile ou face avec un résulat random\`r!pile ou face
 \`r!slap : Fait une grosse claque sa mère à quelqu'un.\`r!slap {@Connard}
 
 
