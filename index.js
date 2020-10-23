@@ -728,6 +728,12 @@ client.on("message", message => {
     })
 }
     
+if(message.content.startsWith(prefix + 'pile ou face')){
+  var coin = ["Pile", "Face"]
+  var randomItem = coin[Math.floor(Math.random()*coin.length)];
+
+  message.channel.send(`Le pièce est tombé sur ${randomItem} :coin:`)
+}
 
 
 
