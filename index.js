@@ -878,10 +878,6 @@ let embed = new Discord.MessageEmbed()
 .setImage('https://cdn.discordapp.com/attachments/604721365630844928/769108024936890389/DVH0sxL.png')
 .setColor('#36393f')
 
-
-if(!target){return}
-
-
 target.send(embed)
 
 let channelC = member.guild.channels.cache.get("769194586404421672"); 
