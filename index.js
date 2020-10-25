@@ -210,6 +210,9 @@ client.on("message", message => {
 \`r!hug : Fait un calin à quelqu'un.\`r!hug {@Joueur}
 \`r!pile ou face : Le bot fait un pile ou face avec un résulat random\`r!pile ou face
 \`r!slap : Fait une grosse claque sa mère à quelqu'un.\`r!slap {@Connard}
+\`r!kiss : Embrasse la personne que vous voulez ou le bot...\`r!slap {@amouuuuur}
+\`r!anger : Montre à quel point vous êtes vénère contre quelqu'un\`r!anger {@fdp}
+\`r!cry : Vous fait pleurer en pls car on vous a volé votre gouté LIDL\`r!cry
 
 
     `)
@@ -562,14 +565,15 @@ client.on("message", message => {
 
 
     }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     if (message.content.startsWith(prefix + 'hug')) {
         const user = message.mentions.users.first();
         const args = message.content.split(' ').slice(1);
         const say = args.join(' ');
-        var calin = ['https://33.media.tumblr.com/680b69563aceba3df48b4483d007bce3/tumblr_mxre7hEX4h1sc1kfto1_500.gif'];
+        var calin = ['https://33.media.tumblr.com/680b69563aceba3df48b4483d007bce3/tumblr_mxre7hEX4h1sc1kfto1_500.gif',"https://cdn.discordapp.com/attachments/587635162309984257/769845669208653834/kiss_milk_and_mocha.gif"];
+        var randomItem = calin[Math.floor(Math.random()*calin.length)];
         
 
         const random = (Math.floor(Math.random() * 1))
@@ -578,7 +582,7 @@ client.on("message", message => {
 
             const hug = new Discord.MessageEmbed()
                 .setDescription(`${message.author} fait un calin à ${user}`)
-                .setImage('https://33.media.tumblr.com/680b69563aceba3df48b4483d007bce3/tumblr_mxre7hEX4h1sc1kfto1_500.gif')
+                .setImage(randomItem)
                 .setColor('BLUE')
             message.channel.send(hug)
         }
@@ -587,7 +591,7 @@ client.on("message", message => {
             if (say) {
                 const hug = new Discord.MessageEmbed()
                     .setDescription(`${message.author} fait un calin à ${say}`)
-                    .setImage('https://33.media.tumblr.com/680b69563aceba3df48b4483d007bce3/tumblr_mxre7hEX4h1sc1kfto1_500.gif')
+                    .setImage(randomItem)
                     .setColor('BLUE')
                 message.channel.send(hug)
             }
@@ -598,7 +602,7 @@ client.on("message", message => {
                     
                      const hug = new Discord.MessageEmbed()
                         .setDescription(`${message.author} fait un calin à 『 UD 』Ritsu`)
-                        .setImage('https://33.media.tumblr.com/680b69563aceba3df48b4483d007bce3/tumblr_mxre7hEX4h1sc1kfto1_500.gif')
+                        .setImage(randomItem)
                         .setColor('BLUE')
                     message.channel.send(hug)
                     }
@@ -606,18 +610,19 @@ client.on("message", message => {
             }
     }
     
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     if (message.content.startsWith(prefix + 'slap')) {
         const user = message.mentions.users.first();
         const args = message.content.split(' ').slice(1);
         const say = args.join(' ');
+        let slap = ['https://cdn.discordapp.com/attachments/580508395803508749/749774313892347914/yoshi.gif',"https://cdn.discordapp.com/attachments/587635162309984257/769846840228839424/tenor_1.gif"]
+        var randomItem = slap[Math.floor(Math.random()*slap.length)];
 
         if (user) {
 
             const hug = new Discord.MessageEmbed()
                 .setDescription(`${message.author} frappe violemment  ${user}`)
-                .setImage('https://cdn.discordapp.com/attachments/580508395803508749/749774313892347914/yoshi.gif')
+                .setImage(randomItem)
                 .setColor('BLUE')
             message.channel.send(hug)
         }
@@ -626,7 +631,7 @@ client.on("message", message => {
             if (say) {
                 const hug = new Discord.MessageEmbed()
                     .setDescription(`${message.author} frappe violemment  ${say}`)
-                    .setImage('https://cdn.discordapp.com/attachments/580508395803508749/749774313892347914/yoshi.gif')
+                    .setImage(randomItem)
                     .setColor('BLUE')
                     message.channel.send(hug)
 
@@ -637,7 +642,7 @@ client.on("message", message => {
                 if ((!user) || (!say)) {
                     const hug = new Discord.MessageEmbed()
                         .setDescription(`${message.author} frappe violemment 『 UD 』Ritsu`)
-                        .setImage('https://cdn.discordapp.com/attachments/580508395803508749/749774313892347914/yoshi.gif')
+                        .setImage(randomItem)
                         .setColor('BLUE')
                     message.channel.send(hug)
                 }
@@ -645,6 +650,115 @@ client.on("message", message => {
             }
         }
     }
+
+    if (message.content.startsWith(prefix + 'cry')) {
+        const user = message.mentions.users.first();
+        let cry = ['https://cdn.discordapp.com/attachments/587635162309984257/769678888107245588/pikachu.gif','https://cdn.discordapp.com/attachments/587635162309984257/769681375732170772/milk_and_mosha_cry.gif','https://cdn.discordapp.com/attachments/587635162309984257/769685265014718515/cry_stitch.gif']
+        var randomItem = cry[Math.floor(Math.random()*cry.length)];
+
+        
+
+            const hug = new Discord.MessageEmbed()
+                .setDescription(`${message.author} pleure à gros sanglots`)
+                .setImage(randomItem)
+                .setColor('BLUE')
+            message.channel.send(hug)
+        
+        
+    }
+
+
+
+    if (message.content.startsWith(prefix + 'anger')) {
+        const user = message.mentions.users.first();
+        let anger = ['https://cdn.discordapp.com/attachments/587635162309984257/769845451988926524/sardoche.gif','https://cdn.discordapp.com/attachments/587635162309984257/769846086536921148/tenor.gif',]
+        var randomItem = anger[Math.floor(Math.random()*anger.length)];
+        const args = message.content.split(' ').slice(1)
+        const say = args.join(' ');
+
+        if (user) {
+
+            const hug = new Discord.MessageEmbed()
+                .setDescription(`${message.author} est fou de rage envers ${user} :rage:`)
+                .setImage(randomItem)
+                .setColor('BLUE')
+            message.channel.send(hug)
+        }
+        else {
+
+            if (say) {
+                const hug = new Discord.MessageEmbed()
+                    .setDescription(`${message.author} est fou de rage envers ${say} :rage:`)
+                    .setImage(randomItem)
+                    .setColor('BLUE')
+                    message.channel.send(hug)
+
+            }
+
+            else {
+
+                if ((!user) || (!say)) {
+                    const hug = new Discord.MessageEmbed()
+                        .setDescription(`${message.author} est fou de rage envers Ritsu :rage:`)
+                        .setImage(randomItem)
+                        .setColor('BLUE')
+                    message.channel.send(hug)
+                }
+
+            }
+        }
+    }
+
+    if (message.content.startsWith(prefix + 'kiss')) {
+        const user = message.mentions.users.first();
+        let kiss = ['https://cdn.discordapp.com/attachments/587635162309984257/769847170668298240/tenor_2.gif','https://cdn.discordapp.com/attachments/587635162309984257/769848262881574932/tenor_3.gif']
+        var randomItem = kiss[Math.floor(Math.random()*kiss.length)];
+        const args = message.content.split(' ').slice(1)
+        const say = args.join(' ');
+
+        if (user) {
+
+            const hug = new Discord.MessageEmbed()
+                .setDescription(`${message.author} embrasse langoureusement ${user} :heart:`)
+                .setImage(randomItem)
+                .setColor('BLUE')
+            message.channel.send(hug)
+        }
+        else {
+
+            if (say) {
+                const hug = new Discord.MessageEmbed()
+                    .setDescription(`${message.author} embrasse langoureusement ${say} :heart:`)
+                    .setImage(randomItem)
+                    .setColor('BLUE')
+                    message.channel.send(hug)
+
+            }
+
+            else {
+
+                if ((!user) || (!say)) {
+                    
+                    message.channel.send('https://youtu.be/vTWuNeZn1aQ')
+                }
+
+            }
+        }
+    }
+
+
+/////////////////////////////////////////////////////////
+
+
+    if(message.content.startsWith(prefix + 'random')){
+        let chiffre = [1,2,3,4,5,6,7,8,9,10]
+        var randomItem = chiffre[Math.floor(Math.random()*chiffre.length)]
+
+        message.channel.send(`Le chiffre choisi est ${randomItem}`)
+
+
+    }
+
 
     if(message.content.startsWith(prefix + 'showdown')){
         let args = message.content.split(' ').slice(1);
@@ -752,7 +866,7 @@ client.on('guildMemberAdd', member => {
 
     channel.send(`:partying_face: **Bienvenue sur le serveur ${member.user.username} ! Nous sommes maintenant ${member.guild.memberCount}** :partying_face:`);
  
- let channelC = member.guild.channels.cache.get("769194586404421672"); 
+    let channelC = member.guild.channels.cache.get("769194586404421672"); 
 	let max = member.guild.memberCount;
 	let format = "🌹 Membres :" + max;
 	if(channelC.name !== format){
