@@ -907,7 +907,7 @@ client.on('guildMemberRemove', member => {
  
  let channelC = member.guild.channels.cache.get("769194586404421672"); 
 	let max = member.guild.memberCount;
-	let format = "🌹 Membres :" + max;
+	let format = "🌹 Membres : " + max;
 	if(channelC.name !== format){
 		channelC.setName(format);
 	}
