@@ -912,10 +912,9 @@ client.on('guildMemberAdd', member => {
 const target = member.guild.channels.cache.get('768787120126689291');
 const emoji = client.emojis.cache.find(emoji => emoji.name ==='6721_AB_welcome')
 const welcomers = member.guild.roles.cache.find(role => role.name === "▪ Welcomers")
-const mention = welcomers.toString()
 let embed = new Discord.MessageEmbed()
 
-.setDescription(`${mention}, veuillez accueillir chaleureusement notre **${member.guild.memberCount}** ème membre ${member} ${emoji}`)
+.setDescription(`${welcomers}, veuillez accueillir chaleureusement notre **${member.guild.memberCount}** ème membre ${member} ${emoji}`)
 .setImage('https://cdn.discordapp.com/attachments/604721365630844928/769108024936890389/DVH0sxL.png')
 .setColor('#36393f')
 
