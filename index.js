@@ -24,45 +24,14 @@ client.on('ready', function () {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 
-    
-    
-  
-
-
-
-    
-
-
-
-   
-    
+ 
 });
 
 
-
-
-
-
-
 client.on("message", message => {
-
-
-
 
 
     if (message.author.bot) { return }
@@ -280,13 +249,6 @@ client.on("message", message => {
             .setFooter('By Moraru_Nashi', "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
         message.channel.send(pnj)
     }
-    ////////////////////////////////////////////////////////////////
-
-
-    ///////////////////////////////////////////////////////////////////
-
-
-
     if (message.content.startsWith(prefix + 'skin')) {
         let args = message.content.split(' ').slice(1)
         const skin = new Discord.MessageEmbed()
