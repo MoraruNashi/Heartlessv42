@@ -43,7 +43,7 @@ if(message.content.startsWith(prefix + 'servlist')){
   
    
 
-  }
+  
   
    
 
