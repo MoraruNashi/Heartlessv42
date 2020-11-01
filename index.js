@@ -4,11 +4,11 @@ const puppeteer = require('puppeteer');
 const hyuga2 = require('./hyuga2')
 hyuga2();
 
-const TOKEN = 'NjYzMDkwNTAyMDgxNDQ1OTE4.XhDdJw.1AvAG7hcobpF_C5huSCrhDGzXwI'
+
 var prefix = 'r!' //le prefix du bot
  //le token du bots
 
-client.login(TOKEN)
+client.login(process.env.BOT_TOKEN)
 
 
 client.on('ready', function () {
