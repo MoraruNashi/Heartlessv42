@@ -4,11 +4,11 @@ const puppeteer = require('puppeteer');
 const hyuga2 = require('./hyuga2')
 hyuga2();
 
-
+const TOKEN = 'NjYzMDkwNTAyMDgxNDQ1OTE4.XhDdJw.1AvAG7hcobpF_C5huSCrhDGzXwI'
 var prefix = 'r!' //le prefix du bot
  //le token du bots
 
-client.login(process.env.BOT_TOKEN)
+client.login(TOKEN)
 
 
 client.on('ready', function () {
@@ -504,13 +504,6 @@ client.on("message", message => {
         }
     }
 
-    
-
-
-
-
-
-
 
 
     if (message.content.startsWith(prefix + 'report')) {
@@ -817,23 +810,6 @@ if(message.content.startsWith(prefix + 'pile ou face')){
 
 });
 
-
-client.on('guildMemberAdd', member => {
-
-    const channel = member.guild.channels.cache.get('672141962324869120');
-
-    if (!channel) { return }
-
-    
-
-    channel.send(`:partying_face: **Bienvenue sur le serveur ${member.user.username} ! Nous sommes maintenant ${member.guild.memberCount}** :partying_face:`);
-
-
-
-
-});
-
-
 client.on('guildMemberRemove', member => {
 
     const channel = member.guild.channels.cache.get('672494723164012583');
@@ -847,7 +823,15 @@ client.on('guildMemberRemove', member => {
 	let format = "🌹 Membres : " + max;
 	if(channelC.name !== format){
 		channelC.setName(format);
-	}
+}
+
+
+let under = member.guild.channels.cache.get("748134506627596318"); 
+    let Nombre = member.guild.memberCount;
+	let nom = "Membres : " + Nombre;
+	if(under.name !== nom){
+		under.setName(nom);
+}
 
 
 });
@@ -886,12 +870,34 @@ if(!target){return}
 
 target.send(embed)
 
-let channelC = member.guild.channels.cache.get("769194586404421672"); 
-	let max = member.guild.memberCount;
-	let format = "🌹 Membres : " + max;
-	if(channelC.name !== format){
-		channelC.setName(format);
-	}
+//////////////////////////////////////////////////////////////////////
 
+const channel = member.guild.channels.cache.get('672141962324869120');
+
+if (!channel) { return }
+
+
+
+channel.send(`:partying_face: **Bienvenue sur le serveur ${member.user.username} ! Nous sommes maintenant ${member.guild.memberCount}** :partying_face:`);
+
+/////////////////////////////////////////////////////////////////////////
+
+
+
+let under = member.guild.channels.cache.get("748134506627596318"); 
+	let max = member.guild.memberCount;
+	let format = "Membres : " + max;
+	if(under.name !== format){
+		under.setName(format);
+}
+///////////////////////////////////////////////////////////////////////////
+let channelC = member.guild.channels.cache.get("769194586404421672"); 
+	let Nombre = member.guild.memberCount;
+	let nom = "🌹 Membres : " + Nombre;
+	if(channelC.name !== nom){
+		channelC.setName(nom);
+}
+
+    
 
 });
