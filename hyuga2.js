@@ -34,12 +34,16 @@ if(message.content.startsWith(prefix + 'leave')){
 if(message.content.startsWith(prefix + 'servlist')){
 
     message.channel.send(`**Nombre de guildes total : ${client.guilds.cache.size}**`);
-    client.guilds.cache.forEach(g => message.channel.send('Envoi en cours...').then(async (m) => await (await m.edit(`
+    client.guilds.cache.forEach(g => message.channel.send(`
     Serveur ${g.name} 
     owner : ${g.owner} 
     ID : ${g.owner.id} 
     Nombre de membres : 
-    ${g.memberCount}\n\n`))))
+    ${g.memberCount}\n\n`))
+  
+   
+
+  }
   
    
 
