@@ -66,8 +66,8 @@ if(message.content.startsWith(prefix +'creator kick')){
           const ban = new Discord.MessageEmbed()
               .setTitle(`${message.author.username} a kick ${user.username}`)
               .setDescription(`**Pour raison : ${say}**`)
-              .setImage(`${user.avatarURL}`)
-              .setThumbnail(`${message.author.avatarURL}`)
+              .setImage(`${user.avatarURL({ format: "png", dynamic: true })}`)
+              .setThumbnail(message.author.avatarURL({ format: "png", dynamic: true }))
               message.channel.send(ban)
           console.log(message.author.tag + " -> kick -> " + (user.tag))
           })
@@ -75,28 +75,36 @@ if(message.content.startsWith(prefix +'creator kick')){
   }
 }
 /////////////////////////////////////////////////////////////////////////////////
-  if(message.content.startsWith(prefix + 'creator ban')){
-      const user = message.mentions.users.first();
-      if (user) {
-          const member = message.guild.member(user);
-          const reason = message.content.split(' ').slice(3);
-          const say = reason.join(' ');
-      if (member) {
-          member.user.createDM().then(channel =>{
-              channel.send(`Vous avez été banni par **${message.author}** pour : **${say}**`)
-          })
-          member.ban().then(() => {
-              const ban = new Discord.MessageEmbed()
-              .setTitle(`${message.author.username} a banni ${user.username}`)
-              .setDescription(`**Pour raison : ${say}**`)
-              .setImage(`${user.avatarURL}`)
-              .setThumbnail(`${message.author.avatarURL}`)
-              message.channel.send(ban)
-              console.log(message.author.tag + " -> ban -> " + (user.tag))
-              })
-          }
-      }
-  }
+   if (message.content.startsWith(prefix + "creator ban")) {
+        if (!message.guild) return;
+        if (!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send("Vous n'avez pas les permissions requises.");
+        const user = message.mentions.users.first();
+        if (user) {
+            const member = message.guild.member(user);
+            if (member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("Vous ne pouvez pas ban un modérateur.")
+
+            const reason = message.content.split(' ').slice(2);
+            const say = reason.join(' ');
+            if (member) {
+                member.user.createDM().then(channel => {
+                    channel.send(`**Vous avez été banni par ${message.author} pour : ${say}**`)
+                })
+                member.ban().then(() => {
+                    const ban = new Discord.MessageEmbed()
+                        .setTitle(`${message.author.username} a ban ${user.username}`)
+                        .setColor('BLUE')
+                        .setDescription(`**Pour raison : ${say}**`)
+                        .setImage(`${user.avatarURL({ format: "png", dynamic: true })}`)
+                        .setThumbnail(message.author.avatarURL({ format: "png", dynamic: true }))
+                    message.channel.send(ban)
+                    console.log(message.author.tag + " -> ban -> " + (user.tag))
+                })
+            }
+        }
+    }
+  
+  
+  
   if(message.content.startsWith(prefix + 'admin test' )){
     
     message.channel.send("Le module admin est bien connecté :thumbsup:")
