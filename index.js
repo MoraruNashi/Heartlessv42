@@ -289,7 +289,7 @@ client.on("message", message => {
                 })
                 member.ban().then(() => {
                     const ban = new Discord.MessageEmbed()
-                        .setTitle(`${message.author.username} a kick ${user.username}`)
+                        .setTitle(`${message.author.username} a ban ${user.username}`)
                         .setColor('BLUE')
                         .setDescription(`**Pour raison : ${say}**`)
                         .setImage(`${user.avatarURL({ format: "png", dynamic: true })}`)
