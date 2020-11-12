@@ -836,23 +836,7 @@ let under = member.guild.channels.cache.get("748134506627596318");
 
 });
 
-client.on('guildCreate', guild => {
 
-    let target = client.channels.cache.get('641712943771156556');
-
-   target.send(`
-        『 UD 』Ritsu a été ajouté sur ${guild.name}
-        Guild Owner : ${guild.owner}
-        Guild Owner ID : ${guild.owner.id}
-        Membres : ${guild.memberCount}
-        
-
-    `)
-	
-if(guild.
-
-
-});
 
 client.on('guildMemberAdd', member => {
 
@@ -903,6 +887,7 @@ let channelC = member.guild.channels.cache.get("769194586404421672");
     
 
 });
+
 client.on('guildCreate', guild => {
 
  let target = client.channels.cache.get('641712943771156556');
@@ -916,7 +901,7 @@ client.on('guildCreate', guild => {
 
   `)
 
-  let blacklist = ['725053767854063660'].includes(guild.id);
+  let blacklist = ['725053767854063660'].includes(guild.id)
 
   if(blacklist){
       guild.owner.createDM().then(DC => DC.send('**Vous n\'êtes pas autorisé à ajouter Ritsu sur votre serveur.**'))
