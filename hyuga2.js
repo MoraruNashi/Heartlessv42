@@ -165,7 +165,7 @@ if(message.content.startsWith(prefix + 'creator clear')){
 }
 
 
-if(message.content.startsWith(prefix + 'blacklist add'))
+if(message.content.startsWith(prefix + 'blacklist add')){
   let args = message.content.slice(2)
   let black = config.blacklist
  
@@ -178,7 +178,7 @@ if(message.content.startsWith(prefix + 'blacklist add'))
       console.log(config.blacklist)
     });
     
-
+}
 if(message.content.startsWith(prefix + 'blackliste')){
   message.channel.send(config.blacklist)
 
