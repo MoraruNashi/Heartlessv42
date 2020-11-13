@@ -33,23 +33,6 @@ if(message.content.startsWith(prefix + 'leave')){
 }
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-if(message.content.startsWith(prefix + 'servlist')){
-
-    message.channel.send(`**Nombre de guildes total : ${client.guilds.cache.size}**`);
-    client.guilds.cache.forEach(g => message.channel.send(`
-    Serveur ${g.name} 
-    owner : ${g.owner} 
-    ID : ${g.owner.id} 
-    Nombre de membres : 
-    ${g.memberCount}\n\n`))
-  
-   
-
-  
-  
-   
-
-  }
 
 
 
@@ -180,6 +163,7 @@ if(message.content.startsWith(prefix + 'blacklist add')){
     });
     
 }
+
 if(message.content.startsWith(prefix + 'blackliste')){
   message.channel.send(config.blacklist)
 
