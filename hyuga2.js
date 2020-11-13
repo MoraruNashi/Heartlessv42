@@ -4,6 +4,7 @@ const hyuga2 = () =>{
 module.exports = hyuga2;
 const Discord = require('discord.js'); 
 const client = new Discord.Client();
+const fs = require('fs');
 var prefix = 'r!'
 
 client.login(process.env.BOT_TOKEN)
@@ -156,13 +157,31 @@ if(message.content.startsWith(prefix + 'creator clear')){
     r!creator ban :  \`Permet de ban un membre de serveur sans permission au préalable.\`
     r!creator clear :  \`Permet de clear un channel sans permission au préalable.\`
     r!admin test :  \`Envoie un message pour vérifier si le module est bien connecté.\`
+    r!blacklist add : \`Ajoute l'ID d'un serveur à blacklist du bot\`
+    r!blackliste : \`Montre les ID de serveurs blacklist par le bot\`
     `)
   .setFooter('By Moraru_Nashi', "https://images-ext-2.discordapp.net/external/SFQ5ptg4l-PlS2LKuydPHCZ96c7zR_w6OQhzAurSHBM/https/cdn.discordapp.com/avatars/344452433327554563/737410c13e9312eb1e38c5af65ebe807.png")
   message.channel.send(embed)
 }
 
 
+if(message.content.startsWith(prefix + 'blacklist add'))
+  let args = message.content.slice(2)
+  let black = config.blacklist
+ 
+  black.push(args);
+  let json = JSON.stringify({ blacklist: black }, null, '');
 
+  fs.writeFile('blacklist.json', json, function(err){
+      if(err) throw err;
+      console.log('Blacklist mise à jour.')
+      console.log(config.blacklist)
+    });
     
+
+if(message.content.startsWith(prefix + 'blackliste')){
+  message.channel.send(config.blacklist)
+
+}
 
 });
