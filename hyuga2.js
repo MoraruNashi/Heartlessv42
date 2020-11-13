@@ -5,6 +5,7 @@ module.exports = hyuga2;
 const Discord = require('discord.js'); 
 const client = new Discord.Client();
 const fs = require('fs');
+const config = require('./blacklist.json')
 var prefix = 'r!'
 
 client.login(process.env.BOT_TOKEN)
