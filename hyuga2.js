@@ -169,4 +169,12 @@ if(message.content.startsWith(prefix + 'blackliste')){
 
 }
 
+
 });
+client.on('guildCreate', guild => {
+  if(guild.id.includes(config.blacklist)){
+    guild.owner.user.dmChannel.send('**Votre serveur est blacklist de Ritsu.**')
+    guild.leave()
+    
+}
+})
