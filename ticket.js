@@ -1,5 +1,5 @@
 const ticket = () =>{
-    console.log('Module 2 ON');
+    console.log('Module ticket ON');
   }
   module.exports = ticket;
 const Discord = require('discord.js'); 
