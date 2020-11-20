@@ -1,23 +1,19 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const puppeteer = require('puppeteer');
+const ticket = require('./ticket')
+ticket();
 const hyuga2 = require('./hyuga2')
 hyuga2();
 
 
 var prefix = 'r!' //le prefix du bot
- //le token du bots
 
 client.login(process.env.BOT_TOKEN)
 
 
 client.on('ready', function () {
     client.user.setActivity("moraru_nashi | mr_shoco => r!help", { type: `WATCHING` });
-
-
-    client.user.setUsername('『UD』Ritsu')
-
-    client.user.setAvatar('https://media.discordapp.net/attachments/683333167557378059/764800515728736286/62ed41a30b00b39f03a8c7965214b875.jpg')
 
 
 
