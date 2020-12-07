@@ -139,9 +139,9 @@ client.on("message", message => {
             .setTitle('Liste des commandes de 『 UD 』Ritsu')
             .setColor('BLUE')
             .setDescription(
-                `**➥ Help d'『 UD 』Ritsu**
+                `**➥ Help de『 UD 』Ritsu**
 
-    ❔ **Voici la page d'aide d'『 UD 』Ritsu, de nouvelles commandes pourraient être implémenté sur cette page.**
+    ❔ **Voici la page d'aide de『 UD 』Ritsu, de nouvelles commandes pourraient être implémentées sur cette page.**
     
     👮 **Commandes de modération**
 
@@ -207,8 +207,8 @@ client.on("message", message => {
             .setTitle('➥ 『 UD 』Ritsu by mr_shoco & Moraru_Nashi')
             .setDescription(
                 `
-                :wave: **『 UD 』Ritsu est un bot créee le 05/01/2020
-                Il est basé du la modérateur, le fun et l'utilitaire. :bulb: 
+                :wave: **『 UD 』Ritsu est un bot créé le 05/01/2020
+                Il est basé sur la modération, le fun et l'utilitaire. :bulb: 
                 Les fonctionnalités vont des commandes basiques comme le kick ou le ban
                 aux commandes donnant accès aux skin minecraft et aux stats sur le serveur rinaorc
                 
@@ -288,7 +288,6 @@ client.on("message", message => {
                         .setTitle(`${message.author.username} a ban ${user.username}`)
                         .setColor('BLUE')
                         .setDescription(`**Pour raison : ${say}**`)
-                        .setImage(`${user.avatarURL({ format: "png", dynamic: true })}`)
                         .setThumbnail(message.author.avatarURL({ format: "png", dynamic: true }))
                     message.channel.send(ban)
                     console.log(message.author.tag + " -> ban -> " + (user.tag))
@@ -335,13 +334,12 @@ client.on("message", message => {
             const say = reason.join(' ');
             if (member) {
                 member.user.createDM().then(channel => {
-                    channel.send(`Vous avez été banni par **${message.author}** pour : **${say}**`)
+                    channel.send(`Vous avez été kick par **${message.author}** pour : **${say}**`)
                 })
                 member.kick().then(() => {
                     const ban = new Discord.MessageEmbed()
                         .setTitle(`${message.author.username} a kick ${user.username}`)
                         .setDescription(`**Pour raison : ${say}**`)
-                        .setImage(user.displayAvatarURL({ format: "png", dynamic: true }))
                         .setColor('BLUE')
                         .setThumbnail(message.author.avatarURL({ format: "png", dynamic: true }))
                     message.channel.send(ban)
@@ -402,7 +400,7 @@ client.on("message", message => {
 
     }
 
-    if (message.content.startsWith(prefix + '『 UD 』Ritsu') || message.content.startsWith(prefix + '『 UD 』Ritsu')) {
+    if (message.content.startsWith(prefix + 'Ritsu') || message.content.startsWith(prefix + 'ritsu')) {
         message.channel.send(`Salut ${message.author.username} :) pense à faire'r!help pour connaitre l'entièreté des commandes disponibles :)`)
     }
 
