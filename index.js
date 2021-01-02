@@ -837,7 +837,7 @@ client.on('guildMemberAdd', member => {
 
 const target = member.guild.channels.cache.get('768787120126689291');
 const emoji = client.emojis.cache.find(emoji => emoji.name ==='6721_AB_welcome')
-const welcomers = member.guild.roles.cache.find(role => role.name === "▪ Welcomers")
+const welcomers = member.guild.roles.cache.find(role => role.name === "welcomers ♡")
 let embed = new Discord.MessageEmbed()
 
 .setDescription(`${welcomers}, veuillez accueillir chaleureusement notre **${member.guild.memberCount}** ème membre ${member} ${emoji}`)
